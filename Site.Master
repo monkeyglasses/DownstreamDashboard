@@ -9,6 +9,7 @@
   <meta content='width=device-width, initial-scale=1.0' name='viewport' />
   <meta content='' name='description' />
   <meta content='' name='author' />
+  <link href="/Styles/bootstrap.min.css" media="screen" rel="stylesheet" type="text/css" />
   <link href="/Styles/Site.css" media="screen" rel="stylesheet" type="text/css" />
   <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
   <!--[if lt IE 9]>
@@ -78,7 +79,9 @@
       <div style='clear: both;'></div>
       <div class='container' id='header-toolbar'>
         <div class='pull-left' id='header-main-nav'>
-          <a href='#pending'></a><a href='overview' class='nav-text btn active'>Overview</a><a href='details' class='nav-text btn'>Details</a><a href='reports' class='nav-text btn'>Reports</a>
+          <a href='overview' class='nav-text btn active'>Overview</a>
+          <a href='details' class='nav-text btn'>Details</a>
+          <a href='reports' class='nav-text btn'>Reports</a>
         </div>
         <div class='btn-group pull-right' data-toggle='buttons-radio' id='prod-switch'>
           <button class='btn active'>PRE-PROD</button>
