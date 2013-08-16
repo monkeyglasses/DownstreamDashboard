@@ -79,9 +79,12 @@
       <div style='clear: both;'></div>
       <div class='container' id='header-toolbar'>
         <div class='pull-left' id='header-main-nav'>
-          <a href='overview' class='nav-text btn active'>Overview</a>
-          <a href='details' class='nav-text btn'>Details</a>
-          <a href='reports' class='nav-text btn'>Reports</a>
+            <asp:HyperLink runat="server" NavigateUrl="~/Default.aspx" ID="linkMainMenuOverview" CssClass="nav-text btn active">Overview</asp:HyperLink>
+            <asp:HyperLink runat="server" NavigateUrl="~/Details.aspx" ID="linkMainMenuDetails" CssClass="nav-text btn">Details</asp:HyperLink>
+            <asp:HyperLink runat="server" NavigateUrl="~/Reports.aspx" ID="linkMainMenuReports" CssClass="nav-text btn">Reports</asp:HyperLink>
+          <a href='default.aspx' class='nav-text btn active'>Overview</a>
+          <a href='details.aspx' class='nav-text btn'>Details</a>
+          <a href='reports.aspx' class='nav-text btn'>Reports</a>
         </div>
         <div class='btn-group pull-right' data-toggle='buttons-radio' id='prod-switch'>
           <button class='btn active'>PRE-PROD</button>
@@ -114,210 +117,12 @@
       </section>
       <section class='panel' id='content'>
 
-      <div id='overview-wrapper'>
-          <h2 class='screen-title'>Overall Status</h2>
-          <div class='left-column pull-left'>
-            <div class='data-widget' id='countdown'>
-              <h3>Next Run Countdown</h3>
-              <ul class='nav nav-tabs nav-stacked'>
-                <li>
-                  <a>
-                    <div class='clock'>
-                      <span class='hours'>--:</span>
-                      <span class='minutes'>--</span>
-                      <span class='seconds'>--</span>
-                    </div>
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <div class='data-widget' id='prioritized'>
-              <h3>Prioritized Extractions</h3>
-              <ul class='nav nav-tabs nav-stacked'>
-                <li>
-                  <a href='atlanta' id='atlanta'>
-                    <span class='site-status completed'></span>
-                    <span class='site-name'>Atlanta</span>
-                    <span class='site-type'>Inc.</span>
-                    <span class='last-update'>1/20 8:20 AM</span>
-                  </a>
-                </li>
-                <li>
-                  <a href='seattle' id='seattle'>
-                    <span class='site-status completed'></span>
-                    <span class='site-name'>Seattle</span>
-                    <span class='site-type'>Inc.</span>
-                    <span class='last-update'>1/20 8:20 AM</span>
-                  </a>
-                </li>
-                <li>
-                  <a href='palo_alto' id='palo-alto'>
-                    <span class='site-status failed'></span>
-                    <span class='site-name'>Palo Alto</span>
-                    <span class='site-type'>Inc.</span>
-                    <span class='last-update'>1/20 8:20 AM</span>
-                  </a>
-                </li>
-                <li>
-                  <a href='austin' id='austin'>
-                    <span class='site-status in-progress'></span>
-                    <span class='site-name'>Austin</span>
-                    <span class='site-type'>Inc.</span>
-                    <span class='last-update'>1/20 8:20 AM</span>
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div class='right-column pull-right'>
-            <div id='status-switches'>
-              <div class='data-widget status' data='IN-PROGRESS' id='in-progress'>
-                <h3>In-Progress</h3>
-                <ul class='nav nav-tabs nav-stacked'>
-                  <li data='EXTRACTIONS'>
-                    <a url='#'>
-                      <span class='label'>Extractions</span>
-                      <h5>180</h5>
-                    </a>
-                  </li>
-                  <li data='ETL'>
-                    <a url='#'>
-                      <span class='label'>ETL</span>
-                      <h5>78</h5>
-                    </a>
-                  </li>
-                </ul>
-              </div>
-              <div class='data-widget status' data='COMPLETED' id='completed'>
-                <h3>Completed</h3>
-                <ul class='nav nav-tabs nav-stacked'>
-                  <li data='EXTRACTIONS'>
-                    <a url='#'>
-                      <span class='label'>Extractions</span>
-                      <h5>10</h5>
-                    </a>
-                  </li>
-                  <li data='ETL'>
-                    <a url='#'>
-                      <span class='label'>ETL</span>
-                      <h5>10</h5>
-                    </a>
-                  </li>
-                </ul>
-              </div>
-              <div class='data-widget status' data='FAILED' id='failed'>
-                <h3>Failed</h3>
-                <ul class='nav nav-tabs nav-stacked'>
-                  <li data='EXTRACTIONS'>
-                    <a class='active' url='#'>
-                      <span class='label'>Extractions</span>
-                      <h5>10</h5>
-                    </a>
-                  </li>
-                  <li data='ETL'>
-                    <a url='#'>
-                      <span class='label'>ETL</span>
-                      <h5>12</h5>
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <div id='details-grid'>
-              <h3>Failed - Extractions</h3>
-              <table class='table'>
-                <thead>
-                  <tr>
-                    <th>Site</th>
-                    <th>Type</th>
-                    <th>Last Run</th>
-                    <th></th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr class='odd'>
-                    <td>Atlanta</td>
-                    <td>Inc.</td>
-                    <td>1/20 8:20 AM</td>
-                    <td class='view-log'>
-                      <a href='../../images/extractions.zip'></a>
-                    </td>
-                  </tr>
-                  <tr class='even'>
-                    <td>Seattle</td>
-                    <td>Inc.</td>
-                    <td>1/20 8:20 AM</td>
-                    <td class='view-log'>
-                      <a href='../../images/extractions.zip'></a>
-                    </td>
-                  </tr>
-                  <tr class='odd'>
-                    <td>Palo Alto</td>
-                    <td>Inc.</td>
-                    <td>1/20 8:20 AM</td>
-                    <td class='view-log'>
-                      <a href='../../images/extractions.zip'></a>
-                    </td>
-                  </tr>
-                  <tr class='even'>
-                    <td>Austin</td>
-                    <td>Inc.</td>
-                    <td>1/20 8:20 AM</td>
-                    <td class='view-log'>
-                      <a href='../../images/extractions.zip'></a>
-                    </td>
-                  </tr>
-                  <tr class='odd'>
-                    <td>DC</td>
-                    <td>Inc.</td>
-                    <td>1/20 8:20 AM</td>
-                    <td class='view-log'>
-                      <a href='../../images/extractions.zip'></a>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-          <div class='clear' style='clear: both;'></div>
-        </div>
 
 
 
-    <div class="page">
-        <div class="header">
-            <div class="title">
-                <h1>
-                    My ASP.NET Application
-                </h1>
-            </div>
-            <div class="loginDisplay">
-                <asp:LoginView ID="HeadLoginView" runat="server" EnableViewState="false">
-                    <AnonymousTemplate>
-                        [ <a href="~/Account/Login.aspx" ID="HeadLoginStatus" runat="server">Log In</a> ][<a href="#">FAQ</a>][<a href="#">Support</a>]
-                    </AnonymousTemplate>
-                    <LoggedInTemplate>
-                        Welcome <span class="bold"><asp:LoginName ID="HeadLoginName" runat="server" /></span>!
-                        [ <asp:LoginStatus ID="HeadLoginStatus" runat="server" LogoutAction="Redirect" LogoutText="Log Out" LogoutPageUrl="~/"/> ]
-                    </LoggedInTemplate>
-                </asp:LoginView>
-            </div>
-            <div class="clear hideSkiplink">
-                <asp:Menu ID="NavigationMenu" runat="server" CssClass="menu" EnableViewState="false" IncludeStyleBlock="false" Orientation="Horizontal">
-                    <Items>
-                        <asp:MenuItem NavigateUrl="~/Default.aspx" Text="Overview"/>
-                        <asp:MenuItem NavigateUrl="~/Details.aspx" Text="Details"/>
-                        <asp:MenuItem NavigateUrl="~/Reports.aspx" Text="Reports"/>
-                    </Items>
-                </asp:Menu>
-            </div>
-        </div>
         <div class="main">
             <asp:ContentPlaceHolder ID="MainContent" runat="server"/>
         </div>
-        <div class="clear">
-        </div>
-    </div>
 
 
 

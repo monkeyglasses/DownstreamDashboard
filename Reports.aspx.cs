@@ -11,7 +11,9 @@ namespace DownstreamDashboard2
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            (Page.Master.FindControl("linkMainMenuOverview") as HyperLink).CssClass = "nav-text btn";
+            (Page.Master.FindControl("linkMainMenuDetails") as HyperLink).CssClass = "nav-text btn";
+            (Page.Master.FindControl("linkMainMenuReports") as HyperLink).CssClass = "nav-text btn active";
         }
     }
 }
